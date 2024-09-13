@@ -1,0 +1,27 @@
+{
+    "name": "sui-snx-perps-keeper",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "ts-node src/index.ts",
+        "build": "tsc",
+        "start": "node dist/src/index.js",
+        "lint": "eslint "
+    },
+    "dependencies": {
+        "@mysten/sui": "^1.2.1",
+        "@pythnetwork/pyth-sui-js": "^1.2.4",
+        "dotenv": "^16.0.1",
+        "express": "^4.19.2",
+        "module-alias": "^2.2.3",
+        "winston": "^3.14.1",
+        "winston-daily-rotate-file": "^5.0.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/module-alias": "^2.0.4",
+        "eslint": "8.28.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.2.2"
+    }
+}

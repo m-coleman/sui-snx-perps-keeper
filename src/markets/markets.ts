@@ -290,9 +290,3 @@ export const SUPPORTED_MARKETS: Market[] = [
     ETH_USDC_MARKET,
     DOGE_USDC_MARKET,
 ];
-
-export const SUPPORTED_ASSET_NAMES: string[] = [
-    USDC_ASSET,
-    BTC_ASSET,
-    ETH_ASSET,
-].map((asset) => asset.name);

@@ -6,6 +6,7 @@ This is a keeper for the Synthetix perps protocol on Sui. It keeps watch over th
 -   `npm install`
 -   Run locally: `npm run dev`
 -   Run in production: `npm run build`, `npm run start`
+-   logs are automatically written to the `logs/` directory, and cleaned up after 7 days
 
 ### Adding a new market
 

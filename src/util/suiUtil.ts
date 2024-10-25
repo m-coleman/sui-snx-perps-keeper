@@ -1,18 +1,13 @@
 import { DevInspectResults, TransactionBlock } from "@mysten/sui.js";
 import { Market } from "@src/markets/markets";
-import {
-    SUI_DECIMALS,
-    SUI_TYPE,
-    TESTNET_PROVIDER,
-    TESTNET_SIGNER,
-} from "@src/util/constants";
+import { SUI_DECIMALS, SUI_TYPE, PROVIDER, SIGNER } from "@src/util/constants";
 import { logError } from "@src/util/logger";
 
 export async function devInspectTransactionBlock(
     txb: TransactionBlock
 ): Promise<DevInspectResults> {
-    const sender = await TESTNET_SIGNER.getAddress(); // just for read functions
-    return await TESTNET_PROVIDER.devInspectTransactionBlock({
+    const sender = await SIGNER.getAddress(); // just for read functions
+    return await PROVIDER.devInspectTransactionBlock({
         sender,
         transactionBlock: txb,
     });

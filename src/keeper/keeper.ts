@@ -1,5 +1,5 @@
 import { TransactionBlock } from "@mysten/sui.js";
-import { processLiquidations } from "@src/liquidations";
+import { processLiquidations } from "@src/keeper/liquidations";
 import { getMarketName } from "@src/markets/marketUtil";
 import {
     BTC_USDC_MARKET,
@@ -7,7 +7,7 @@ import {
     ETH_USDC_MARKET,
     Market,
 } from "@src/markets/markets";
-import { processOrders } from "@src/orders";
+import { processOrders } from "@src/keeper/orders";
 import { PROCESS_INTERVAL_SECONDS } from "@src/util/constants";
 import { logError, logInfo } from "@src/util/logger";
 import { fetchPythPriceInfoObjectId } from "@src/util/pythUtil";

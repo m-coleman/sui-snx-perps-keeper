@@ -5,7 +5,7 @@ import {
 } from "@pythnetwork/pyth-sui-js";
 import { Market } from "@src/markets/markets";
 import {
-    TESTNET_PROVIDER,
+    PROVIDER,
     UPDATE_PRICE_FEED_NUM_MOVE_CALLS,
 } from "@src/util/constants";
 import {
@@ -19,7 +19,7 @@ const priceServiceConnection = new SuiPriceServiceConnection(
 ); // See Price Service endpoints section below for other endpoints
 
 const pythClient = new SuiPythClient(
-    TESTNET_PROVIDER,
+    PROVIDER,
     getPythStateId(),
     getWormholeStateId()
 );

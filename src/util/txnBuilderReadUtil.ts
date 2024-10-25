@@ -1,6 +1,6 @@
 import { SUI_CLOCK_OBJECT_ID, TransactionBlock } from "@mysten/sui.js";
-import { SuiClient, SuiParsedData } from "@mysten/sui/client";
-import { MarketStruct } from "@src/contractStructs";
+import { SuiParsedData } from "@mysten/sui/client";
+import { MarketStruct } from "@src/keeper/contractStructs";
 import { getMarketSuiTypes } from "@src/markets/marketUtil";
 import { Market } from "@src/markets/markets";
 import {
@@ -8,14 +8,14 @@ import {
     MARKET_MODULE_ID,
     PACKAGE_ID,
     STATE_MODULE_ID,
-    TESTNET_PROVIDER,
+    PROVIDER,
     TRADE_MODULE_ID,
 } from "@src/util/constants";
 
 export async function loadMarketObject(
     marketId: string
 ): Promise<MarketStruct> {
-    const marketObj = await TESTNET_PROVIDER.getObject({
+    const marketObj = await PROVIDER.getObject({
         id: marketId,
         options: { showContent: true, showDisplay: true },
     });

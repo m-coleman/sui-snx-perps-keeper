@@ -8,7 +8,7 @@ import {
     CLOCK_ADDR,
     GLOBAL_MARKETS_ID,
     PACKAGE_ID,
-    TESTNET_SIGNER,
+    SIGNER,
     TRADE_MODULE_ID,
     UPDATE_INTEREST_RATE_NUM_MOVE_CALLS,
 } from "@src/util/constants";
@@ -31,7 +31,7 @@ export async function buildExecuteOrderTxn(
             txb.object(CLOCK_ADDR),
         ],
     });
-    const keeperAddress = await TESTNET_SIGNER.getAddress();
+    const keeperAddress = await SIGNER.getAddress();
     buildPublicTransferCoinTxn(txb, coinArg, keeperAddress, market);
 }
 
@@ -52,7 +52,7 @@ export async function buildLiquidatePositionTxn(
             txb.object(CLOCK_ADDR),
         ],
     });
-    const keeperAddress = await TESTNET_SIGNER.getAddress();
+    const keeperAddress = await SIGNER.getAddress();
     // liquidate_position returns (amount_liquidated, keeper_reward_coin), so make sure to transfer the keeper_reward_coin to ourselves
     buildPublicTransferCoinTxn(txb, result[1], keeperAddress, market);
 }

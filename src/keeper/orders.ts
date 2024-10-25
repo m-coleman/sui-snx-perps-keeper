@@ -1,6 +1,6 @@
 import { TransactionBlock } from "@mysten/sui.js";
 import { Market } from "@src/markets/markets";
-import { TESTNET_SIGNER } from "@src/util/constants";
+import { SIGNER } from "@src/util/constants";
 import { logError, logInfo } from "@src/util/logger";
 import { updatePriceFeed } from "@src/util/pythUtil";
 import {
@@ -47,7 +47,7 @@ async function executeOrders(orderAddresses: string[], market: Market) {
 
     try {
         logInfo(market, `Dry running orders: ${orderAddresses}`);
-        const dryRunResult = await TESTNET_SIGNER.dryRunTransactionBlock({
+        const dryRunResult = await SIGNER.dryRunTransactionBlock({
             transactionBlock: txb,
         });
         const isDryRunSuccess =
@@ -68,7 +68,7 @@ async function executeOrders(orderAddresses: string[], market: Market) {
 
         await handleRpcBackoff();
 
-        const result = await TESTNET_SIGNER.signAndExecuteTransactionBlock({
+        const result = await SIGNER.signAndExecuteTransactionBlock({
             transactionBlock: txb,
             options: {
                 showBalanceChanges: true,
@@ -90,7 +90,7 @@ async function executeOrders(orderAddresses: string[], market: Market) {
         logInfo(market, `${msg}: ${resultString}`);
 
         // record balance changes (SUI spent/earned, quote asset earned)
-        const keeperAddress = await TESTNET_SIGNER.getAddress();
+        const keeperAddress = await SIGNER.getAddress();
         const { suiBalanceChange, quoteAssetBalanceChange } =
             parseKeeperBalanceChanges(
                 result.balanceChanges,

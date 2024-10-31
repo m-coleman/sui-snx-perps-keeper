@@ -1,3 +1,20 @@
+export type SnxEventType =
+    | "StakeEvent"
+    | "UnstakeEvent"
+    | "RewardsClaimedEvent"
+    | "ModifyPositionEvent"
+    | "WithdrawMarginEvent"
+    | "CancelOrderEvent"
+    | "PositionLiquidatedEvent"
+    | "OrderExecutedEvent"
+    | "MarketAdded"
+    | "MarketParamUpdatedU64"
+    | "MarketParamUpdatedID"
+    | "MarketParamUpdatedBool"
+    | "ProtocolFundsWithdrawn"
+    | "GlobalMarketsEnabledUpdated"
+    | "GlobalMarketsVersionMigrated";
+
 export interface RawStakeEvent {
     account: string;
     shares: string;

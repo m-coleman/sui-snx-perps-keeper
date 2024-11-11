@@ -140,7 +140,7 @@ export function getDefaultCalculatedValues(): CalculatedValues {
         currLiqCapacity: 0,
         lastLiqTimestamp: 0,
         maxLiqAmountInWindow: 0,
-        vaultNetBalance: 0,
+        stakersBalance: 0,
     };
 }
 

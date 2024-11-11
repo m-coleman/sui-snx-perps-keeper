@@ -3,6 +3,7 @@ import {
     JsonRpcProvider,
     RawSigner,
     testnetConnection,
+    mainnetConnection,
 } from "@mysten/sui.js";
 import {
     getGlobalMarketsId,
@@ -11,12 +12,14 @@ import {
     getPackageId,
     getProcessIntervalSeconds,
     getRpcBackoffTimeMs,
+    isProduction,
 } from "@src/util/environmentUtil";
 import { hexToUint8Array } from "@src/util/util";
 
-export const TESTNET_PROVIDER = new JsonRpcProvider(testnetConnection);
+const connection = isProduction() ? mainnetConnection : testnetConnection;
+export const PROVIDER = new JsonRpcProvider(connection);
 const keypair = Ed25519Keypair.fromSecretKey(hexToUint8Array(getPK()));
-export const TESTNET_SIGNER = new RawSigner(keypair, TESTNET_PROVIDER);
+export const SIGNER = new RawSigner(keypair, PROVIDER);
 
 // module names
 export const MARKET_MODULE_ID = "market";

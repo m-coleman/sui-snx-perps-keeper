@@ -6,6 +6,14 @@ export function getPort() {
     return process.env.PORT || 3002;
 }
 
+export function getRunKeeper() {
+    return process.env.RUN_KEEPER === "true";
+}
+
+export function getRunEventIndexer() {
+    return process.env.RUN_EVENT_INDEXER === "true";
+}
+
 export function getPK() {
     return process.env.PK || "";
 }
@@ -50,8 +58,8 @@ export function getPythVaasApiUrl() {
     return process.env.NEXT_PUBLIC_PYTH_VAAS_API_URL || "";
 }
 
-export function getSuiEnv() {
-    return process.env.NEXT_PUBLIC_SUI_ENV || "";
+export function isProduction() {
+    return getNetwork() === "mainnet";
 }
 
 export function getProcessIntervalSeconds(): number {
@@ -75,4 +83,8 @@ export function getNetwork(): Network {
     }
 
     return "testnet";
+}
+
+export function getEventProcessingPollingIntervalMs(): number {
+    return Number(process.env.EVENT_PROCESSING_POLLING_INTERVAL) || 5000;
 }

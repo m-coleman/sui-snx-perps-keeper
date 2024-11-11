@@ -125,7 +125,7 @@ export interface CalculatedValues {
     currLiqCapacity: number;
     lastLiqTimestamp: number;
     maxLiqAmountInWindow: number;
-    vaultNetBalance: number;
+    stakersBalance: number;
 }
 
 export interface InterestRateData {

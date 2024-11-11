@@ -12,7 +12,6 @@ import {
     TRADE_MODULE_ID,
     UPDATE_INTEREST_RATE_NUM_MOVE_CALLS,
 } from "@src/util/constants";
-import { getPythStateId } from "@src/util/environmentUtil";
 
 export async function buildExecuteOrderTxn(
     txb: TransactionBlock,
@@ -27,7 +26,6 @@ export async function buildExecuteOrderTxn(
             txb.object(market.id),
             txb.object(GLOBAL_MARKETS_ID),
             txb.object(market.oracle.pythPriceInfoObjectId),
-            txb.object(getPythStateId()),
             txb.object(CLOCK_ADDR),
         ],
     });
@@ -48,7 +46,6 @@ export async function buildLiquidatePositionTxn(
             txb.object(market.id),
             txb.object(GLOBAL_MARKETS_ID),
             txb.object(market.oracle.pythPriceInfoObjectId),
-            txb.object(getPythStateId()),
             txb.object(CLOCK_ADDR),
         ],
     });
@@ -68,7 +65,6 @@ export async function buildUpdateInterestRateTxn(
             txb.object(market.id),
             txb.object(GLOBAL_MARKETS_ID),
             txb.object(market.oracle.pythPriceInfoObjectId),
-            txb.object(getPythStateId()),
             txb.object(CLOCK_ADDR),
         ],
     });

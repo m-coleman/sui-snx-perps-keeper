@@ -59,6 +59,7 @@ export interface RawCancelOrderEvent {
 export interface RawPositionLiquidatedEvent {
     account: string;
     amount_liquidated: string;
+    amount_direction: boolean;
     liquidator: string;
     keeper_reward: string;
 }
@@ -72,6 +73,7 @@ export interface RawOrderExecutedEvent {
     size_delta_direction: boolean;
     limit_price: string;
     margin: string;
+    margin_returned: string;
 }
 
 export interface RawMarketAddedEvent {
